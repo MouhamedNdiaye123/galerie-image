@@ -1,4 +1,10 @@
-*{
+:root{
+    --width: 40%; 
+    --height:300px; 
+    --quantity: 9;
+}
+
+* {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -6,53 +12,66 @@
     font-family: sans-serif;
     outline: none;
 }
-a{
+img{
+    width: 100%;
+}
+
+
+a {
     display: inline-block;
 }
-nav{
+
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 5px 30px;
 }
-nav > ul{
+
+nav>ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 30px;
 }
-nav a{
+
+nav a {
     color: rgb(83, 83, 83);
     font-size: 16px;
 }
-nav input{
+
+nav input {
     padding: 10px 15px;
     border-radius: 30px;
-    
+
 }
-.sign{
+
+.sign {
     background-color: black;
     color: white;
     padding: 10px 20px;
     border-radius: 30px;
 }
-.sign:hover{
+
+.sign:hover {
     background-color: rgba(0, 0, 0, 0.638);
 }
 
 
 
-.section-world{
+.section-world {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding-top: 90px;
 }
-.container-world{
+
+.container-world {
     padding-top: 50px;
 }
-.container-world button{
+
+.container-world button {
     padding: 10px 16px;
     border-radius: 30px;
     background-color: bisque;
@@ -61,25 +80,99 @@ nav input{
     animation: change-color 20s infinite;
     font-size: 18px;
 }
+
 @keyframes change-color {
-    10%{background-color: chocolate;}
-    30%{background-color: palevioletred;}
-    50%{background-color: greenyellow;}
-    70%{background-color: gray;}
-    100%{background-color: gainsboro;}
+    10% {
+        background-color: chocolate;
+    }
+
+    30% {
+        background-color: palevioletred;
+    }
+
+    50% {
+        background-color: greenyellow;
+    }
+
+    70% {
+        background-color: gray;
+    }
+
+    100% {
+        background-color: gainsboro;
+    }
 }
-.container-world h1{
+
+.container-world h1 {
     font-size: 3rem;
     padding-top: 40px;
     font-family: Georgia, sans-serif;
 }
-.container-world p{
+
+.container-world p {
     font-weight: 600;
     padding: 20px 0;
 }
-.container-grid{
+.grid{
+    position: relative;
+    margin-top: 5rem;
+}
+.container-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    min-width: calc( var(--width) * var(--quantity));
+    grid-gap: 15px;
+}
+
+.grid-item {
+    width: var(--width);
+    height: var(--height);
+    /* position: absolute; */
+    left: 100%;
+    animation: autoRun 20s linear infinite;
+    animation-delay: calc( (5s / var(--quantity)) * (var(--position) -1) );
 
 }
-.grid-item{
-    
+
+@keyframes autoRun{
+    from{left: 100%;}
+    to{left: calc(var(--width) * -1);}
+}
+
+
+.grid-section{
+    margin-top: 50px;
+    padding: 0px 10px;
+}
+.container-section{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, auto);
+    gap: 20px;
+}
+.item-section img{
+    border-radius: 20px;
+}
+.texte-image{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.texte-right, .texte-left{
+    display: flex;
+    align-items: center;
+    padding-right: 5px;
+}
+.texte-right button{
+    margin-left: 5px;
+    background-color: black;
+    color: white;
+}
+.texte-image p{
+    font-size: 14px;
+    margin-right: 5px;
+}
+.texte-image img{
+    width: 15px;
 }
